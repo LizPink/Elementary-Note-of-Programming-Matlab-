@@ -1,0 +1,100 @@
+% Document Setting Area:
+\documentclass[
+    cn          % language
+    12pt,       % font size
+    a4paper,    % paper size
+    citestyle=gb7714-2015,
+    bibstyle=gb7714-2015
+    ]{Template/elegantbook}
+
+
+% Package Installation Area:
+%% Paper Size packages:
+\usepackage{geometry}   % 引入 geometry 包，支持左右页边距调整
+\geometry{
+    left=2cm,   % 左边距
+    right=2cm   % 右边距
+}
+%% Font Support Packages:
+\usepackage{fontspec}
+\usepackage{xeCJK}      % 支持中日韩字体
+\usepackage{soul}       % 提供高亮命令
+\definecolor{codebg}{RGB}{240,240,240}  % 定义浅灰色背景
+\sethlcolor{codebg}     % 绑定高亮颜色
+%% Math Support Packages:
+\usepackage{amssymb}
+\usepackage{extarrows}
+\usepackage{mathtools}  % 支持右括号cases等环境
+%% Graphics Support Packages:
+\usepackage{svg}        % 支持插入SVG图片
+\usepackage{graphicx}
+\usepackage{tikz-3dplot}
+\usetikzlibrary{cd}     % commutative diagrams库
+\usepackage{float}      % 固定图片位置
+%% Table Support Packages:
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{makecell}   % 引入 makecell 包，用于单元格分行
+\usepackage{booktabs}   % 用于专业表格线（\toprule, \midrule, \bottomrule）
+\usepackage[utf8]{inputenc} % 支持 UTF-8 编码
+\usepackage{ragged2e}       % 用于单元格文本左对齐且自动换行
+%% Coding Support Packages:
+\usepackage{listings}      % 代码展示
+\usepackage{xcolor}        % 自定义颜色支持
+% MATLAB 代码着色配置
+\lstset{
+    language=Matlab,               % ★ 将语言切换为 MATLAB
+    basicstyle=\ttfamily\small,    % 等宽字体，小字号
+    keywordstyle=\color{blue},     % MATLAB 关键字蓝色
+    commentstyle=\color{green!50!black}, % 注释颜色 (%)
+    stringstyle=\color{red},       % 字符串颜色
+    backgroundcolor=\color{lightgray!20}, % 浅灰背景
+    frame=single,                  % 单框
+    breaklines=true,               % 自动换行
+    showstringspaces=false,        % 不显示空格
+    tabsize=4,                     % 制表符大小
+    numbers=left,                  % 行号
+    numberstyle=\tiny\color{gray}, % 行号样式
+    % ★ MATLAB 核心关键字（覆盖默认，增强高亮）
+    morekeywords={
+        if, else, elseif, end, for, while, switch, case, otherwise, break, return, function,
+        classdef, properties, methods, events, try, catch, global, persistent, parfor},
+    % ★ MATLAB 常见内置函数高亮（第二层关键字）
+    morekeywords=[2]{
+        disp, zeros, ones, size, length, linspace, meshgrid, plot, xlabel, ylabel, title, legend,
+        mean, median, std, var, sum, max, min, sort, sortrows, load, save, fopen, fclose
+    }
+}
+
+
+% Basic Information Setting Area:
+\title{Elementary Note of MATLAB Programming}
+\cover{Cover/MATLAB.png}
+\author{瓶子里}
+\date{November 2025}
+
+
+% Document Editing Area:
+\begin{document}
+%% 命令设置：
+\input{Newcommands}
+%% 主题设置：
+\maketitle
+%% 前言内容：
+\frontmatter
+\newpage
+%%% 目录设置
+\tableofcontents
+%%% 前言设置
+\input{Part0/前言}
+%% 正文内容：
+\mainmatter
+\newpage
+\input{Part1/语法}
+\input{Part1/数据结构}
+
+
+%% 附录内容：
+\appendix
+\backmatter
+\end{document}

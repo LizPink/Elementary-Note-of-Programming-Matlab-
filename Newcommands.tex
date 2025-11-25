@@ -1,0 +1,30 @@
+% This file records manually made new commands.
+%% 输出整行的分割线，默认宽度位0.4pt
+\newcommand{\dashline}[1][0.4pt]{\par\noindent\rule{\textwidth}{#1}}
+
+% 横线格式设定
+\newcommand{\proofline}{
+  \smash{\raisebox{.15ex}{\rule{1.8cm}{0.5pt}}}
+}
+
+% 方便写竖式：两列表格，去掉左右空白
+\newenvironment{rulestrut}
+  {\array{@{}r@{\;}l@{}}}   % r 列放符号, l 列放命题
+  {\endarray}
+
+% 段落自动换行：
+\newcommand{\nl}{\mbox{}\newline}
+
+% 自然数：
+\newcommand{\pp}{\!+\!+}
+
+%% 数学符号：
+% 反对角省略号：
+\newcommand{\rdots}{\quad\begin{rotate}{90}$\ddots$\end{rotate}}
+\newcommand{\rank}{\text{rank}}
+\newcommand{\prj}{\text{Prj}}
+\newcommand{\eigval}{\text{eigval}}
+\newcommand{\eigvec}{\text{eigvec}}
+
+% 封装命令：\code{文本} → 等宽字体+灰色背景
+\newcommand{\code}[1]{\hl{\texttt{#1}}}
